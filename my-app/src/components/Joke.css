@@ -1,0 +1,9 @@
+p {
+    color: white;
+}
+
+
+.joke.completed{
+    color: black;
+    text-decoration: underline;
+  }
