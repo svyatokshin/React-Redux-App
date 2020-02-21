@@ -20,7 +20,10 @@ export const jokesReducer = (state = initialState, action) => {
         case UPDATE_JOKES:
             return {
                 ...state,
-                jokes: action.payload,
+                jokes: action.payload.map(joke => ({
+                    ...joke, 
+                    isRevealed: false
+                })),
                 isFetchingData: false
             };
         case SET_ERROR: 
@@ -30,11 +33,26 @@ export const jokesReducer = (state = initialState, action) => {
                 error: action.payload
             };
         case TOGGLE_REVEAL:
-            return {
-                ...state,
-                isFetchingData:false,
-                isRevealed: !change
-            }
+            if (action.payload === 'all') {
+                    return {
+                        ...state,
+                        isFetchingData: false,
+                        isRevealed: true
+                    }
+                } else {
+                    return {
+                        ...state,
+                        isFetchingData:false,
+                        jokes: state.jokes.map(joke => {
+                            if (joke.id === action.payload){
+                                return {...joke, 
+                                isRevealed: true}
+                            } else{
+                                return joke
+                            }
+                        })
+                    }
+                }
         default:
             return state;
     }

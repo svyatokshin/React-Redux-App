@@ -14,7 +14,8 @@ export default function App() {
   return (
     <Provider store={store}>
       <div className='App'>
-        <h1>Random Joke Generator!</h1>
+        <div className='logo'>
+        </div>
         <JokesForm />
         <JokesList />
       </div>

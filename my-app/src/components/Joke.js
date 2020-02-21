@@ -3,11 +3,15 @@ import { connect } from "react-redux";
 import "../components/Joke.css";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+import { toggleReveal } from "../actions/index";
 
 const useStyles = makeStyles({
   root: {
     border: '2px solid grey',
-    margin: '3px 0'
+    margin: '20px 0',
+    width: '90%',
+
   }
 });
 
@@ -16,14 +20,21 @@ function Joke(props) {
   console.log("this is the joke.js props: ", props);
 
   return (
-    <div>
         <Card className={classes.root} color="primary">
           <h1>{props.joke.setup}</h1>
-          <p className={`joke${props.isRevealed ? " completed" : ""}`}>
+          <p className={`joke${props.joke.isRevealed || props.isRevealed ? " completed" : ""}`}>
             {props.joke.punchline}
           </p>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => props.toggleReveal(props.joke.id)}
+          >
+            Reveal Answer
+          </Button>
+          <br/>
+          <br/>
         </Card>
-    </div>
   );
 }
 
@@ -36,4 +47,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(Joke);
+export default connect(mapStateToProps, { toggleReveal })(Joke);

@@ -14,7 +14,7 @@ export const getData = () => dispatch => {
         })
         .catch(err => {
             console.error('error fetching data from api, err: ', err);
-            dispatch({ type: SET_ERROR, payload: "Error fetching data from api" })
+            dispatch({ type: SET_ERROR, payload: "Error fetching Jokes" })
         });
 };
 export const toggleReveal = (id) => dispatch => {

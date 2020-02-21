@@ -37,5 +37,15 @@
   }
 }
 body{
-  background-color: papayawhip;
+  width: 100%;
+  height: auto !important;
+  background: rgb(253,29,29);
+  background: radial-gradient(circle, rgba(253,29,29,1) 10%, rgba(252,176,69,1) 85%, rgba(107,58,180,1) 100%);
+}
+.logo{
+  margin: 10px auto;
+  width: 700px;
+  height:255px;
+  background-image: url(./images/title2.gif);
+
 }

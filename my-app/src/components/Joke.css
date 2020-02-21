@@ -4,6 +4,8 @@ p {
 
 
 .joke.completed{
-    color: black;
-    text-decoration: underline;
+    font-size: 1.5rem;
+    color: #fd1d1d;
+    font-weight: bold;
+
   }

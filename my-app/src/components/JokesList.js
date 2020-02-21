@@ -5,27 +5,18 @@ import Joke from "./Joke";
 import { toggleReveal } from "../actions/index";
 import { Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { findByLabelText } from "@testing-library/react";
 
 const useStyles = makeStyles({
   root: {
-      margin:'0 auto',
-    width: "350px",
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
+      margin:'10px auto',
+    width: "60%",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
     alignItems: "center",
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
+    background: '#0C1D51'
+    
   }
 });
 
@@ -41,13 +32,13 @@ const JokesList = props => {
           <Button
             variant="contained"
             color="primary"
-            onClick={() => props.toggleReveal()}
+            onClick={() => props.toggleReveal('all')}
           >
-            Click To Reveal All Answers
+            Click To Reveal All Answers 
           </Button>
           <Card className={classes.root}>
             {props.jokes.map(joke => (
-              <Joke key={joke.id} joke={joke} />
+                  <Joke key={joke.id} joke={joke} /> 
             ))}
           </Card>
         </div>
