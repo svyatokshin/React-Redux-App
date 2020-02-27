@@ -1,11 +1,12 @@
 import { FETCH_DATA, UPDATE_JOKES, SET_ERROR, TOGGLE_REVEAL } from '../actions';
 
 const change = false;
+const changer = true;
 
 const initialState = {
     jokes: [],
     isFetchingData: false,
-    isRevealed: change,
+    isRevealed: false,
     error: ''
 };
 
@@ -37,7 +38,7 @@ export const jokesReducer = (state = initialState, action) => {
                     return {
                         ...state,
                         isFetchingData: false,
-                        isRevealed: true
+                        isRevealed: !state.isRevealed
                     }
                 } else {
                     return {
